@@ -1,6 +1,6 @@
 <#assign project_id="gs-consuming-rest-restjs">
 This guide walks you through the process of consuming a simple
-[rest.js](http://github.com/cujojs/rest/) that consumes a
+[rest.js](http://github.com/cujojs/rest/) client that consumes a
 Spring MVC-based [RESTful web service][u-rest].
 
 What you'll build
@@ -52,39 +52,13 @@ where to put the JavaScript dependencies.  The `.bowerrc` file should
 be located at the root of the project (`${project_id}/initial`) and
 formatted as JSON:
 
-```js
-{
-	"directory": "public/lib"
-}
-```
+<@snippet path=".bowerrc" prefix="complete"/>
 
-From a command prompt, run `bower init` at the root of the
-project.  This will create a `bower.json` file that describes the
+From a command prompt at the root of the project, run `bower init`.
+This will create a `bower.json` file that describes the
 JavaScript packages required by the project.  Bower will ask for several
 bits of information such as a project name, license, etc.  If in doubt,
 just press `Enter` to accept the defaults.
-
-There should now be a `bower.json` file in the project's root directory.
-It should look similar to the following:
-
-```js
-{
-  "name": "draft-consuming-rest-restjs",
-  "version": "0.0.0",
-  "authors": [
-    "John Hann <jhann@gopivotal.com>"
-  ],
-  "license": "http://www.apache.org/licenses/LICENSE-2.0",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "src/main/resources/static/lib",
-    "test",
-    "tests"
-  ]
-}
-```
 
 Next, use bower to install rest.js and an AMD module loader such as
 curl.js.  Both of these JavaScript packages' github repositories are
@@ -118,28 +92,7 @@ When done, the `bower.json` file should have a "dependencies"
 object property that lists "curl" and "rest" as property names and
 their semver information as values:
 
-```js
-{
-  "name": "draft-consuming-rest-restjs",
-  "version": "0.0.0",
-  "authors": [
-    "John Hann <jhann@gopivotal.com>"
-  ],
-  "license": "http://www.apache.org/licenses/LICENSE-2.0",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "src/main/resources/static/lib",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "curl": "~0.8",
-    "rest": "~1"
-  }
-}
-```
+<@snippet path="bower.json" prefix="complete"/>
 
 
 Create a Render Module
