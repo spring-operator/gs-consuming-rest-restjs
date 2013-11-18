@@ -83,7 +83,7 @@ their semver information as values:
 <@snippet path="bower.json" prefix="complete"/>
 
 
-Create a Render Module
+Create a render module
 ---
 
 First, create a render function to inject data into an HTML document.
@@ -99,7 +99,7 @@ function-module.
 *templating*, rather than DOM manipulation as shown here.
 
 
-Create an Application Composition module
+Create an application composition module
 ---
 
 Next, create a module that will compose the application.
@@ -131,7 +131,7 @@ The `packages` config object tells curl.js where to find modules
 in our application's packages or in third-party packages.
 
 
-Create the Application Page
+Create the application page
 ---
 
 Finally, create an `index.html` file and add the following HTML:
