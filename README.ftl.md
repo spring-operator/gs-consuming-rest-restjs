@@ -1,7 +1,6 @@
 <#assign project_id="gs-consuming-rest-restjs">
-This guide walks you through the process of consuming a simple
-[rest.js](http://github.com/cujojs/rest/) client that consumes a
-Spring MVC-based [RESTful web service][u-rest].
+This guide walks you through the process of consuming a simple rest.js
+client that consumes a Spring MVC-based [RESTful web service][u-rest].
 
 What you'll build
 -----------------
@@ -38,9 +37,8 @@ What you'll need
  - A favorite text editor
  - A modern web browser
  - An internet connection
- - [node.js](http://nodejs.org/) and [git](http://git-scm.com/)
-   pre-installed
- - [bower](http://bower.io) installed as a global node.js package
+ - Node.js and git pre-installed
+ - Bower installed as a global node.js package
 
 <a name="scratch"></a>
 <a name="initial"></a>
@@ -61,15 +59,7 @@ bits of information such as a project name, license, etc.  If in doubt,
 just press `Enter` to accept the defaults.
 
 Next, use bower to install rest.js and an AMD module loader such as
-curl.js.  Both of these JavaScript packages' github repositories are
-listed in the bower directory as the shortcuts, "rest" and "curl".
-
-Bower can install specific versions of packages if those packages
-use semantic versioning ([semver](http://semver.org)) rules.  Append a
-`#` followed by the version number.  For rest.js version 1.x.y and
-curl.js version 0.8.x, use "rest#~1" and "curl~0.8".
-
-From a command prompt within the project directory tree, type:
+curl.js.  From the command prompt, type:
 
 ```
 bower install --save rest#~1
@@ -79,14 +69,12 @@ bower install --save rest#~1
 bower install --save curl#~0.8
 ```
 
-Bower will display status as it locates the required versions of
-rest.js and curl.js and installs them into the directory we listed
+Bower will install rest.js and curl.js into the directory we listed
 in `.bowerrc`.  Since we specified the `--save` option, bower will
 store the package information in the `bower.json` file.
 
-> **Note:** Bower will recursively find `bower.json` files within the packages
-in order to find and install further dependencies.  Bower should discover
-that rest.js depends on when.js and install a compatible version.
+> **Note:** Bower should discover that rest.js depends on when.js
+and install a compatible version.
 
 When done, the `bower.json` file should have a "dependencies"
 object property that lists "curl" and "rest" as property names and
@@ -121,7 +109,7 @@ Next, create a module that will compose the application.
 The main module reads the query string from the document's location
 object, configures a rest.js mime client, and calls the REST endpoint.
 
-rest.js returns a [Promises/A+ promise](http://know.cujojs.com/tutorials/promises/consuming-promises),
+rest.js returns a Promises/A+ promise,
 which will call the render function-module when the endpoint returns
 data.  The render function expects the entity, but the rest.js client
 returns a response object.  The `pluckEntity` function is inserted into
@@ -129,18 +117,10 @@ the promise chain to transform the rest.js output into the input expected
 by the render function.
 
 
-Create the Application Page
+Create a boot script
 ---
 
-Next, create an `index.html` file and add the following HTML:
-
-<@snippet path="public/index.html" prefix="complete"/>
-
-The `script` element loads curl.js and then loads an *application boot
-script* named "run.js".  The boot script initializes and configures
-an AMD module environment and then starts the client-side application code.
-
-Finally, create the boot script, `run.js`:
+Next, create the boot script, `run.js`:
 
 <@snippet path="public/run.js" prefix="complete"/>
 
@@ -149,6 +129,18 @@ configuration property tells curl.js where to find the application's
 main module, which will be fetched and evaluated automatically.
 The `packages` config object tells curl.js where to find modules
 in our application's packages or in third-party packages.
+
+
+Create the Application Page
+---
+
+Finally, create an `index.html` file and add the following HTML:
+
+<@snippet path="public/index.html" prefix="complete"/>
+
+The `script` element loads curl.js and then loads an *application boot
+script* named "run.js".  The boot script initializes and configures
+an AMD module environment and then starts the client-side application code.
 
 
 <a name="run"></a>
