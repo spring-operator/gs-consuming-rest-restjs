@@ -156,6 +156,7 @@ define(function (require) {
 
     var rest = require('rest');
     var mime = require('rest/interceptor/mime');
+    var entity = require('rest/interceptor/entity');
     var render = require('./render');
 
     var endpointUrl, name, client;
@@ -163,15 +164,12 @@ define(function (require) {
     endpointUrl = 'http://rest-service.guides.spring.io/greeting';
     name = document.location.search.slice(1);
 
-    client = rest.chain(mime, { mime: 'application/json' });
+    client = rest
+        .chain(mime, { mime: 'application/json' })
+        .chain(entity);
 
     client({ path: endpointUrl + '?name=' + name })
-        .then(pluckEntity)
         .then(render);
-
-    function pluckEntity (response) {
-        return response.entity;
-    }
 
 });
 ```
@@ -180,11 +178,11 @@ The main module reads the query string from the document's location
 object, configures a rest.js mime client, and calls the REST endpoint.
 
 rest.js returns a Promises/A+ promise,
-which will call the render function-module when the endpoint returns
-data.  The render function expects the entity, but the rest.js client
-returns a response object.  The `pluckEntity` function is inserted into
-the promise chain to transform the rest.js output into the input expected
-by the render function.
+which will call the `render` function-module when the endpoint returns
+data.  The `render` function expects the entity, but the rest.js client
+normally returns a response object.  The "rest/interceptor/entity"
+interceptor plucks the entity from the response and forwards that
+onto the `render` function.
 
 
 Create a boot script

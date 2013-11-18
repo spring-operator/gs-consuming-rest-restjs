@@ -2,6 +2,7 @@ define(function (require) {
 
     var rest = require('rest');
     var mime = require('rest/interceptor/mime');
+    var entity = require('rest/interceptor/entity');
     var render = require('./render');
 
     var endpointUrl, name, client;
@@ -9,14 +10,11 @@ define(function (require) {
     endpointUrl = 'http://rest-service.guides.spring.io/greeting';
     name = document.location.search.slice(1);
 
-    client = rest.chain(mime, { mime: 'application/json' });
+    client = rest
+        .chain(mime, { mime: 'application/json' })
+        .chain(entity);
 
     client({ path: endpointUrl + '?name=' + name })
-        .then(pluckEntity)
         .then(render);
-
-    function pluckEntity (response) {
-        return response.entity;
-    }
 
 });
