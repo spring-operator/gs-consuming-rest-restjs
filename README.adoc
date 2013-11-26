@@ -12,7 +12,7 @@ client that consumes a Spring MVC-based link:/understanding/REST[RESTful web ser
 
 You will build a rest.js client that consumes a Spring-based RESTful web service.
 Specifically, the client will consume the service created in
-{gs-rest-service-cors}[Building a RESTful Web Servce with CORS].
+{gs-rest-service-cors}[Building a RESTful Web Service with CORS].
 
 The rest.js client will be accessed by opening the `index.html` file in
 your browser, and will consume the service accepting requests at:
