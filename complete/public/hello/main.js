@@ -14,7 +14,7 @@ define(function (require) {
         .chain(mime, { mime: 'application/json' })
         .chain(entity);
 
-    client({ path: endpointUrl + '?name=' + name })
+    client({ path: endpointUrl, params: { name:  name } })
         .then(render);
 
 });
