@@ -47,7 +47,7 @@ render a custom greeting into the DOM.
  - A modern web browser
  - An internet connection
  - Node.js and git pre-installed
- - Bower installed as a global node.js package
+ - Bower installed as a global node.js link:/understanding/javascript-package-managers[package]
 
 [[scratch]]
 [[initial]]
@@ -66,12 +66,14 @@ include::complete/.bowerrc[]
 
 From a command prompt at the root of the project, run `bower init`.
 This will create a `bower.json` file that describes the
-JavaScript packages required by the project.  Bower will ask for several
+link:/understanding/javascript-package-managers[JavaScript packages]
+required by the project.  Bower will ask for several
 bits of information such as a project name, license, etc.  If in doubt,
 just press `Enter` to accept the defaults.
 
-Next, use bower to install rest.js and an AMD module loader such as
-curl.js.  From the command prompt, type:
+Next, use link:/understanding/javascript-package-managers[bower] to 
+install rest.js and an link:/understanding/javascript-modules[AMD module] 
+loader such as curl.js.  From the command prompt, type:
 
 ----
 bower install --save rest#~1
@@ -109,7 +111,8 @@ First, create a render function to inject data into an HTML document.
 include::complete/public/hello/render.js[]
 ----
 
-This module uses simple DOM querying and manipulation to inject text
+This link:/understanding/javascript-modules[module] uses simple DOM 
+querying and manipulation to inject text
 into the document.  To ensure that the DOM is not used before it is
 ready, the render module imports and uses curl.js's `domReady`
 function-module.
@@ -131,7 +134,7 @@ include::complete/public/hello/main.js[]
 The main module reads the query string from the document's location
 object, configures a rest.js mime client, and calls the REST endpoint.
 
-rest.js returns a Promises/A+ promise,
+rest.js returns a link:/understanding/javascript-promises[Promises/A+ promise],
 which will call the `render` function-module when the endpoint returns
 data.  The `render` function expects the entity, but the rest.js client
 normally returns a response object.  The "rest/interceptor/entity"
