@@ -71,8 +71,8 @@ required by the project.  Bower will ask for several
 bits of information such as a project name, license, etc.  If in doubt,
 just press `Enter` to accept the defaults.
 
-Next, use Bower to install rest.js and an 
-link:/understanding/javascript-modules[AMD module] 
+Next, use Bower to install rest.js and an
+link:/understanding/javascript-modules[AMD module]
 loader such as curl.js.  From the command prompt, type:
 
 ----
@@ -111,7 +111,7 @@ First, create a render function to inject data into an HTML document.
 include::complete/public/hello/render.js[]
 ----
 
-This link:/understanding/javascript-modules[AMD module] uses simple DOM 
+This link:/understanding/javascript-modules[AMD module] uses simple DOM
 querying and manipulation to inject text
 into the document.  To ensure that the DOM is not used before it is
 ready, the render module imports and uses curl.js's `domReady`
@@ -205,5 +205,23 @@ The ID value will increment each time you refresh the page.
 Congratulations! You've just developed a rest.js client that consumes a
 Spring-based RESTful web service.
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
+== See Also
 
+The following guides may also be helpful:
+
+* https://spring.io/guides/gs/rest-service/[Building a RESTful Web Service]
+* https://spring.io/guides/gs/consuming-rest/[Consuming a RESTful Web Service]
+* https://spring.io/guides/gs/consuming-rest-angularjs/[Consuming a RESTful Web Service with AngularJS]
+* https://spring.io/guides/gs/consuming-rest-jquery/[Consuming a RESTful Web Service with jQuery]
+* https://spring.io/guides/gs/accessing-gemfire-data-rest/[Accessing GemFire Data with REST]
+* https://spring.io/guides/gs/accessing-mongodb-data-rest/[Accessing MongoDB Data with REST]
+* https://spring.io/guides/gs/accessing-data-mysql/[Accessing data with MySQL]
+* https://spring.io/guides/gs/accessing-data-rest/[Accessing JPA Data with REST]
+* https://spring.io/guides/gs/accessing-neo4j-data-rest/[Accessing Neo4j Data with REST]
+* https://spring.io/guides/gs/securing-web/[Securing a Web Application]
+* https://spring.io/guides/gs/spring-boot/[Building an Application with Spring Boot]
+* https://spring.io/guides/gs/testing-restdocs/[Creating API Documentation with Restdocs]
+* https://spring.io/guides/gs/rest-service-cors/[Enabling Cross Origin Requests for a RESTful Web Service]
+* https://spring.io/guides/gs/rest-hateoas/[Building a Hypermedia-Driven RESTful Web Service]
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
